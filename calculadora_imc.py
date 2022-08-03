@@ -1,14 +1,22 @@
-print('Qual o seu peso?')
-peso = float(input())
+print('Qual o seu peso? (kg)')
+peso = input()
 
-print('Qual a sua altura?')
-altura = float(input())
+if not peso.isdigit():
+   print('Favor digitar o peso em kilos!')
+
+try:
+    print('Qual a sua altura? (m)')
+    altura = float(input())
+
+except ValueError:
+    print("Favor digitar a altura em metros!")
+
+peso = float(peso)
+altura = float(altura)
 
 imc = peso / (altura*altura)
 
-imc_formatado = "{:.2f}".format(imc)
-
-print('Seu IMC é de', imc_formatado,)
+print(f'Seu IMC é de {imc:.2f}')
 
 if (imc < 18.5):
     print('Você está abaixo do peso, procure um nutricionista. Se alimente melhor!')
